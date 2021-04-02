@@ -2,13 +2,14 @@
     <x-slot name="header">
        Quiz Oluştur
     </x-slot>
+    
     <div class="card">
         <div class="card-body">
             <form method="POST" action="{{route('quizzes.store')}}">
                 @csrf
                 <div class="form-group">
                     <label>Quiz Başlığı</label>
-                    <input type="text" name="title" class="form-control" required>
+                    <input type="text" name="title" class="form-control" value="{{old('title')}}">
                 </div>
                 <div class="form-group">
                     <label>Quiz Açıklaması</label>
