@@ -58,7 +58,7 @@
             
         </div>
 
-        @stack('modals')
+        @stack('models')
         @isset($js)
         {{ $js }}
         @endif
