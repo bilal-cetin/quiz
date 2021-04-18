@@ -12,6 +12,11 @@ class MainController extends Controller
         return view('dashboard',compact('quizzes'));
     }
 
+    public function quiz($slug){
+        $quiz = Quiz::where('status','publish')->with('questions')->first();
+        return view('quiz',compact('quiz'));
+    }
+
     public function quiz_detail($slug){
         $quiz = Quiz::whereSlug($slug)->withCount('questions')->first() ?? abort(404,'Quiz Bulunamadı');
         return view('quiz_detail',compact('quiz'));
